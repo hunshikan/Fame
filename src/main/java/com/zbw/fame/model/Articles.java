@@ -8,7 +8,7 @@ import java.util.Date;
  * @auther zbw
  * @create 2017/7/8 9:29
  */
-public class Contents extends BaseEntity {
+public class Articles extends BaseEntity {
 
     //内容标题
     private String title;
@@ -30,6 +30,9 @@ public class Contents extends BaseEntity {
 
     //标签列表
     private String tags;
+
+    //文章分类
+    private String category;
 
     //内容状态
     private String status;
@@ -91,6 +94,14 @@ public class Contents extends BaseEntity {
 
     public void setTags(String tags) {
         this.tags = tags;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getStatus() {
