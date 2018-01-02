@@ -4,7 +4,7 @@ import com.zbw.fame.controller.BaseController;
 import com.zbw.fame.model.Users;
 import com.zbw.fame.service.UsersService;
 import com.zbw.fame.util.FameConsts;
-import com.zbw.fame.util.RestResponse;
+import com.zbw.fame.dto.RestResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;

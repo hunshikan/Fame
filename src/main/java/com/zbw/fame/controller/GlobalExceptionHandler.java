@@ -2,7 +2,7 @@ package com.zbw.fame.controller;
 
 import com.zbw.fame.exception.TipException;
 import com.zbw.fame.util.ErrorCode;
-import com.zbw.fame.util.RestResponse;
+import com.zbw.fame.dto.RestResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.ConversionNotSupportedException;

@@ -9,7 +9,7 @@ import com.zbw.fame.service.ArticlesService;
 import com.zbw.fame.service.LogsService;
 import com.zbw.fame.util.FameConsts;
 import com.zbw.fame.util.FameUtil;
-import com.zbw.fame.util.RestResponse;
+import com.zbw.fame.dto.RestResponse;
 import com.zbw.fame.util.Types;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;

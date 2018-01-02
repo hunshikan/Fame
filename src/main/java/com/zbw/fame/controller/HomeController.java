@@ -9,8 +9,12 @@ import com.zbw.fame.service.ArticlesService;
 import com.zbw.fame.service.MetasService;
 import com.zbw.fame.util.FameConsts;
 import com.zbw.fame.util.FameUtil;
-import com.zbw.fame.util.RestResponse;
+import com.zbw.fame.dto.RestResponse;
 import com.zbw.fame.util.Types;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +28,7 @@ import java.util.List;
  * @author zbw
  * @create 2017/7/15 18:29
  */
+@Api(value = "Home Controller", description = "博客前台相关操作的接口", tags = "博客前台接口")
 @RestController
 @RequestMapping("/api")
 public class HomeController extends BaseController {
@@ -40,9 +45,14 @@ public class HomeController extends BaseController {
      * @param page
      * @return
      */
+    @ApiOperation(value = "获取文章列表", notes = "分页显示文章列表", response = Pagination.class)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "page", value = "页面", defaultValue = "1", dataTypeClass = Integer.class),
+            @ApiImplicitParam(name = "limit", value = "每页显示数目", defaultValue = "10", dataTypeClass = Integer.class)
+    })
     @GetMapping("article")
     public RestResponse home(@RequestParam(required = false, defaultValue = "1") Integer page,
-                              @RequestParam(required = false, defaultValue = FameConsts.PAGE_SIZE) Integer limit) {
+                             @RequestParam(required = false, defaultValue = FameConsts.PAGE_SIZE) Integer limit) {
         Page<Articles> articles = articlesService.getContents(page, limit);
         for (Articles a : articles) {
             this.transformPreView(a);
@@ -56,6 +66,8 @@ public class HomeController extends BaseController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "获取文章内容", notes = "获取文章详细内容", response = Articles.class)
+    @ApiImplicitParam(name = "id", value = "文章id", required = true, example = "1", dataTypeClass = Integer.class)
     @GetMapping("article/{id}")
     public RestResponse content(@PathVariable Integer id) {
         Articles article = articlesService.get(id);
@@ -93,6 +105,7 @@ public class HomeController extends BaseController {
      *
      * @return
      */
+    @ApiOperation(value = "获取标签列表", notes = "获取标签列表以及标签下的文章", response = MetaDto.class, responseContainer = "List")
     @GetMapping("tag")
     public RestResponse tag() {
         List<MetaDto> metaDtos = metasService.getMetaDtos(Types.TAG);
@@ -104,6 +117,7 @@ public class HomeController extends BaseController {
      *
      * @return
      */
+    @ApiOperation(value = "获取分类列表", notes = "获取分类列表以及分类下的文章", response = MetaDto.class, responseContainer = "List")
     @GetMapping("/category")
     public RestResponse category() {
         List<MetaDto> metaDtos = metasService.getMetaDtos(Types.CATEGORY);
@@ -115,6 +129,7 @@ public class HomeController extends BaseController {
      *
      * @return
      */
+    @ApiOperation(value = "获取归档列表", notes = "获取归档列表以及归档下的文章", response = Archives.class, responseContainer = "List")
     @GetMapping("archive")
     public RestResponse archive() {
         Integer maxLimit = 9999;
@@ -149,6 +164,8 @@ public class HomeController extends BaseController {
      * @param title
      * @return
      */
+    @ApiOperation(value = "获取自定义页面内容", notes = "获取自定义页面详细内容", response = Articles.class)
+    @ApiImplicitParam(name = "title", value = "自定义页面title", required = true, example = "About", dataTypeClass = String.class)
     @GetMapping("page/{title}")
     public RestResponse page(@PathVariable String title) {
         Articles page = articlesService.getPage(title);

@@ -1,5 +1,7 @@
 package com.zbw.fame.model;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +15,7 @@ import javax.persistence.Id;
  */
 public class BaseEntity {
 
+    @ApiModelProperty(value = "Entity id", name = "id", example = "1")
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

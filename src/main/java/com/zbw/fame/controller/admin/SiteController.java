@@ -7,7 +7,7 @@ import com.zbw.fame.model.Logs;
 import com.zbw.fame.service.LogsService;
 import com.zbw.fame.service.SiteService;
 import com.zbw.fame.util.FameConsts;
-import com.zbw.fame.util.RestResponse;
+import com.zbw.fame.dto.RestResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

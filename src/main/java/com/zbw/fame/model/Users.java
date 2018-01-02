@@ -1,5 +1,7 @@
 package com.zbw.fame.model;
 
+import io.swagger.annotations.ApiModel;
+
 import java.util.Date;
 
 /**

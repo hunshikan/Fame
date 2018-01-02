@@ -2,7 +2,7 @@ package com.zbw.fame.controller.admin;
 
 import com.zbw.fame.controller.BaseController;
 import com.zbw.fame.service.MetasService;
-import com.zbw.fame.util.RestResponse;
+import com.zbw.fame.dto.RestResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,7 @@
-package com.zbw.fame.util;
+package com.zbw.fame.dto;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * json通用返回类
@@ -6,11 +9,16 @@ package com.zbw.fame.util;
  * @author zbw
  * @create 2017/7/12 19:59
  */
+@ApiModel(description = "全局返回Model")
 public class RestResponse<T> {
 
+    @ApiModelProperty(value = "返回码", name = "code", dataType = "int", example = "0")
     private int code;
+    @ApiModelProperty(value = "返回信息", name = "msg", dataType = "String", example = "修改文章成功")
     private String msg;
+    @ApiModelProperty(value = "返回数据", name = "data", dataType = "object")
     private T data;
+    @ApiModelProperty(value = "操作结果", name = "success", dataType = "boolean", example = "true")
     private boolean success;
 
     private RestResponse() {
