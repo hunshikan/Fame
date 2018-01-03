@@ -14,7 +14,7 @@ public enum ErrorCode {
     /**
      * 空指针异常
      */
-    NULL_POINTER(1001, "NullPointerException "),
+    NULL_POINTER(1001, "NullPointerException"),
     /**
      * 类型住转换异常
      */

@@ -45,7 +45,7 @@ public class HomeController extends BaseController {
      * @param page
      * @return
      */
-    @ApiOperation(value = "获取文章列表", notes = "分页显示文章列表", response = Pagination.class)
+    @ApiOperation(value = "获取文章列表", notes = "分页显示已发布文章列表", response = Pagination.class)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", value = "页面", defaultValue = "1", dataTypeClass = Integer.class),
             @ApiImplicitParam(name = "limit", value = "每页显示数目", defaultValue = "10", dataTypeClass = Integer.class)
