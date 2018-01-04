@@ -1,5 +1,8 @@
 package com.zbw.fame.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
 /**
@@ -8,41 +11,49 @@ import java.util.Date;
  * @author zbw
  * @create 2017/10/11 9:57
  */
+@ApiModel(description = "日志Logs Entity")
 public class Logs extends BaseEntity {
 
     /**
      * 操作动作
      */
+    @ApiModelProperty(value = "操作动作", name = "action", example = "新增")
     private String action;
 
     /**
      * 操作数据
      */
+    @ApiModelProperty(value = "操作数据", name = "data", example = "id:2")
     private String data;
 
     /**
      * 操作信息
      */
+    @ApiModelProperty(value = "操作信息", name = "message", example = "新增文章")
     private String message;
 
     /**
      * 操作类型
      */
+    @ApiModelProperty(value = "操作类型", name = "type", example = "operate")
     private String type;
 
     /**
      * ip地址
      */
+    @ApiModelProperty(value = "ip地址", name = "ip", example = "127.0.0.1")
     private String ip;
 
     /**
      * 操作人
      */
+    @ApiModelProperty(value = "操作人id", name = "userId", example = "2")
     private Integer userId;
 
     /**
      * 操作时间
      */
+    @ApiModelProperty(value = "操作时间", name = "created")
     private Date created;
 
     public String getAction() {

@@ -88,7 +88,7 @@ public class ArticleController extends BaseController {
             @ApiImplicitParam(name = "content", value = "文章内容(md格式)", required = true, dataTypeClass = String.class),
             @ApiImplicitParam(name = "tags", value = "文章标签(每个标签逗号隔开)", required = true, dataTypeClass = String.class),
             @ApiImplicitParam(name = "category", value = "文章分类", required = true, dataTypeClass = String.class),
-            @ApiImplicitParam(name = "status", value = "文章状态([publish,draft])", defaultValue = "draft", dataTypeClass = String.class),
+            @ApiImplicitParam(name = "status", value = "文章状态", allowableValues = "[publish,draft]",defaultValue = "draft", dataTypeClass = String.class),
             @ApiImplicitParam(name = "allowComment", value = "是否允许评论", defaultValue = "false", dataTypeClass = Boolean.class),
     })
     @PostMapping
