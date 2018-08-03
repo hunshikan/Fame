@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS fame;
-CREATE DATABASE fame;
+CREATE DATABASE fame character set utf8;
 USE fame;
 
 CREATE TABLE users (
@@ -10,7 +10,7 @@ CREATE TABLE users (
   screen_name  VARCHAR(45),
   created      TIMESTAMP       NOT NULL DEFAULT current_timestamp,
   logged       TIMESTAMP       NOT NULL DEFAULT current_timestamp ON UPDATE current_timestamp
-);
+) DEFAULT CHARSET=utf8;
 
 CREATE TABLE articles (
   id            INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -25,7 +25,7 @@ CREATE TABLE articles (
   status        VARCHAR(32),
   type          VARCHAR(32),
   allow_comment BOOLEAN
-);
+) DEFAULT CHARSET=utf8;
 
 CREATE TABLE comments (
   id         INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -40,19 +40,19 @@ CREATE TABLE comments (
   ip         VARCHAR(255),
   agent      VARCHAR(255),
   created    TIMESTAMP       NOT NULL DEFAULT current_timestamp
-);
+) DEFAULT CHARSET=utf8;
 
 CREATE TABLE metas (
   id   INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(255)    NOT NULL,
   type VARCHAR(45)     NOT NULL
-);
+) DEFAULT CHARSET=utf8;
 
 CREATE TABLE middles (
   id   INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   a_id INT             NOT NULL,
   m_id INT             NOT NULL
-);
+) DEFAULT CHARSET=utf8;
 
 CREATE TABLE logs (
   id      INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -63,7 +63,7 @@ CREATE TABLE logs (
   ip      VARCHAR(255),
   user_id INT,
   created TIMESTAMP       NOT NULL DEFAULT current_timestamp
-);
+) DEFAULT CHARSET=utf8;
 
 
 INSERT INTO users (username, password_md5, email, screen_name)

@@ -1,0 +1,32 @@
+version: '3'
+services: 
+  mysql:
+   container_name: fame-mysql
+   build: 
+     context: ../
+     dockerfile: docker/mysql/Dockerfile
+   environment:
+     MYSQL_DATABASE: fame
+     MYSQL_ROOT_PASSWORD: root
+     MYSQL_ROOT_HOST: '%'
+     TZ: Asia/Shanghai
+   expose:
+      - "3306"
+   volumes:
+     - ./mysql/mysql_data:/var/lib/mysql
+   restart: always
+      
+  app:
+    container_name: fame-app
+    restart: always
+    build: ./app
+    working_dir: /app
+    volumes:
+      - ../:/app
+      - ~/.m2:/root/.m2
+      - /tmp/logs:/usr/local/logs
+    ports:
+      - "9090:9090"
+    command: mvn clean spring-boot:run -Dspring-boot.run.profiles=docker -Dmaven.test.skip=true
+    depends_on:
+      - mysql
